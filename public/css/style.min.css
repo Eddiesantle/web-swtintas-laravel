@@ -1,0 +1,9 @@
+/* (*) Limpa formatação padrão*/
+
+* {
+    margin: 0;
+    /*margin = Margem*/
+    padding: 0;
+    /*padding = Preenchimento*/
+}
+

@@ -12,10 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css/bootstrap.min.css');
+    .sass('resources/sass/app.scss', 'public/css/bootstrap.min.css')
+    .styles(
+    'resources/views/css/style.css', 'public/css/style.min.css');
 
-
-
-mix.
-styles(
-    'resources/views/css/styles.css', 'public/css/style.min.css');

@@ -1,3 +1,9 @@
-body {
-    background-color: #456456;
+/* (*) Limpa formatação padrão*/
+
+* {
+    margin: 0;
+    /*margin = Margem*/
+    padding: 0;
+    /*padding = Preenchimento*/
 }
+
