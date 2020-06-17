@@ -14,6 +14,17 @@ cd C:\Xampp\htdocs
 
 composer install
 
+Certificar se o arquivo .env foi instalado
+
+Configurar pasta .env 
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=db_swtintas
+DB_USERNAME=root
+DB_PASSWORD=
+
 ## 3. Instale dependências do npm:
 
 npm install
