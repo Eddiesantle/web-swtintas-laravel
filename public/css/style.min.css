@@ -5,5 +5,7 @@
     /*margin = Margem*/
     padding: 0;
     /*padding = Preenchimento*/
+    background-color: greenyellow;
 }
 
+body {background-color: greenyellow; }

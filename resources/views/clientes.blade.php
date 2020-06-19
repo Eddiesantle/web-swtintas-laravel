@@ -16,7 +16,7 @@
 
                     Seja bem vindo {{ Auth::user()->name }}!
 
-                    <p>Aqui vamos registrar todos os clintes</p>
+                    <p>Aqui vamos registrar todos os clientes</p>
 
                     <form method="POST" action="{{route('clientes.store')}}">
                         @csrf
