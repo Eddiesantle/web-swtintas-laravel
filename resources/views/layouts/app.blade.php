@@ -31,23 +31,32 @@
         <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="img/logo.png" width="100" class="d-inline-block align-top" alt="">
+
+                    {{-- {{ config('app.name', 'Laravel') }} --}}
+                    
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                @if(Auth::check())
+                <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav ml-auto">
                           <li class="nav-item">
-                            <a class="nav-link" href="{{ route('clientes.index')}}">Clientes</a>
+                            <a class="nav-link" href="{{ url('/') }}">Home</a>
                           </li>
                           <li class="nav-item">
                             <a class="nav-link" href="{{ route('produtos.index')}}">Cadastro de Produtos</a>
                           </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{ route('clientes.index')}}">Clientes</a>
+                          </li>
+                          
 
                     </ul>
+                @endif
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -82,8 +91,41 @@
                         @endguest
                     </ul>
                 </div>
+
+                {{-- @endif --}}
+
             </div>
         </nav>
+
+        {{-- Info Alert --}}
+      @if(session('status'))
+      <div class="top-alert alert alert-info alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+          {{session('status')}}
+      </div>
+      @endif
+
+      {{-- Success Alert --}}
+      @if(session('success'))
+      <div class="top-alert alert alert-success alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+          {{session('success')}}
+      </div>
+      @endif
+
+      {{-- Error Alert --}}
+      @if(session('error'))
+      <div class="top-alert alert alert-danger alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+          {{session('error')}}
+      </div>
+      @endif
 
         <main class="py-4">
             @yield('content')
