@@ -17,11 +17,13 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 }); */
 
-Auth::routes();
+
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/Clientes', 'ClienteController@index')->name('clientes.index');
-Route::post('/Cadastrar-clientes', 'ClienteController@store')->name('clientes.store');
+Route::resource('produtos', 'ProdutoController');
+Route::resource('clientes', 'ClienteController');
 
-Route::get('/Produtos', 'ProdutoController@index')->name('produtos.index');
+Auth::routes();
+
+

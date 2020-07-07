@@ -1,11 +1,10 @@
 <?php
-use App\Cliente;
-
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Http\Requests\ClientesRequest;
+use App\Cliente;
 
 class ClienteController extends Controller
 {
@@ -28,7 +27,8 @@ class ClienteController extends Controller
     public function index()
     {
         //
-        return view('clientes');
+        $items = Cliente::get();
+        return view('clientes.index', array('items' => $items));
 
     }
 
@@ -40,6 +40,8 @@ class ClienteController extends Controller
     public function create()
     {
         //
+        return view('clientes.create');
+
     }
 
     /**
@@ -55,12 +57,21 @@ class ClienteController extends Controller
             'nome'    => $request->contact_name,
             'email'   => $request->contact_email,
             'tell'   => $request->contact_tell,   
-          );
+          ); 
 
-        dd($cliente);
+        //Herdado Classe do MODEL Cliente
+        $novocliente = new Cliente();
+        $novocliente->name = $cliente['nome'];
+        $novocliente->email = $cliente['email'];
+        $novocliente->telefone = $cliente['tell'];
 
-        
-        
+        //Registra no banco de dados
+        $novocliente->save();
+
+
+        return redirect()
+        ->route('clientes.index')
+        ->with('success', 'Cliente cadastrado com sucesso!');
 
     }
 
@@ -73,6 +84,7 @@ class ClienteController extends Controller
     public function show($id)
     {
         //
+
 
     }
 
