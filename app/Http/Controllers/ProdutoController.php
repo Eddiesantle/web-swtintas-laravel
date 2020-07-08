@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProdutoRequest;
+use App\Produto;
 
 class ProdutoController extends Controller
 {
@@ -25,7 +28,8 @@ class ProdutoController extends Controller
     public function index()
     {
         //
-        return view('produtos.index');
+        $items = Produto::get();
+        return view('produtos.index', array('items' => $items));
     }
 
     /**
@@ -36,6 +40,7 @@ class ProdutoController extends Controller
     public function create()
     {
         //
+        return view('produtos.create');
     }
 
     /**
@@ -44,9 +49,29 @@ class ProdutoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProdutoRequest $request)
     {
         //
+        //
+        $produto = array(
+            'nome_produto'    => $request->nome_produto,
+            'codigo'   => $request->codigo, 
+          ); 
+
+        //Herdado Classe do MODEL produto
+        $novoproduto = new Produto();
+        $novoproduto->nome_produto = $produto['nome_produto'];
+        $novoproduto->codigo = $produto['codigo'];
+
+
+
+        //Registra no banco de dados
+        $novoproduto->save();
+
+
+        return redirect()
+        ->route('produtos.index')
+        ->with('success', 'Produto cadastrado com sucesso!');
     }
 
     /**
@@ -55,9 +80,10 @@ class ProdutoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Produto $produto)
     {
         //
+        return view('produtos.show', array('verproduto' => $produto));
     }
 
     /**
@@ -66,9 +92,10 @@ class ProdutoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Produto $produto)
     {
         //
+        return view('produtos.edit', array('editproduto' => $produto));
     }
 
     /**
@@ -78,9 +105,19 @@ class ProdutoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Produto $produto)
     {
         //
+        $produto->nome_produto = $request->nome_produto;
+        $produto->codigo = $request->codigo;
+        
+
+        $produto->save();
+    
+        return redirect()
+          ->route('produtos.index')
+          ->with('success', 'Produto alterado com sucesso!');
+
     }
 
     /**
@@ -89,8 +126,14 @@ class ProdutoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( Produto $produto)
     {
         //
+        $produto->delete();
+
+        return redirect()
+          ->route('produtos.index')
+          ->with('success', 'Produto deletado com sucesso!');
+
     }
 }

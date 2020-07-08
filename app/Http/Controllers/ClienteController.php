@@ -81,10 +81,11 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Cliente $cliente)
     {
         //
-
+ 
+        return view('clientes.show', array('vercliente' => $cliente));
 
     }
 
@@ -94,9 +95,12 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Cliente $cliente)
     {
         //
+        
+
+    return view('clientes.edit', array('editcliente' => $cliente));
     }
 
     /**
@@ -106,9 +110,21 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Cliente $cliente)
     {
         //
+        //$this->validator($request);
+
+    $cliente->name = $request->name;
+    $cliente->email = $request->email;
+    $cliente->telefone = $request->telefone;
+
+
+    $cliente->save();
+
+    return redirect()
+      ->route('clientes.index')
+      ->with('success', 'Cliente alterado com sucesso!');
     }
 
     /**
@@ -117,8 +133,13 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Cliente $cliente)
     {
         //
+        $cliente->delete();
+
+    return redirect()
+      ->route('clientes.index')
+      ->with('success', 'Cliente deletado com sucesso!');
     }
 }

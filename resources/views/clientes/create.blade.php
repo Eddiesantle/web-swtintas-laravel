@@ -18,6 +18,8 @@
 
                     <p>Aqui vamos registrar todos os clientes</p>
 
+                    
+
                     <form method="POST" action="{{route('clientes.store')}}">
                         @csrf
                         <div class="form-group">
@@ -35,8 +37,10 @@
                             <input type="text" class="form-control" name="contact_tell">
                             <span class="error">{{$errors->first('contact_tell')}}</span>
                           </div>
+                          <a class="btn btn-primary pull-right" href="{{ route('clientes.index') }}" role="button">Voltar</a>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
+                    
 
                 </div>
             </div>
