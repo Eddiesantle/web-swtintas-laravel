@@ -33,6 +33,16 @@
                           <span class="error">{{$errors->first('codigo')}}</span>
                         </div>
 
+                        <div class="form-group @if ($errors->has('avatar')) has-error @endif">
+                            <label class="control-label" for="avatar">Foto do Produto</label>
+                            <input type="file" class="form-control" id="avatar" name="avatar">
+                            @if ($errors->has('avatar'))
+                            <span class="invalid-feedback help-block" role="alert">
+                                <strong>{{ $errors->first('avatar') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+
                           <a class="btn btn-primary pull-right" href="{{ route('produtos.index') }}" role="button">Voltar</a>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

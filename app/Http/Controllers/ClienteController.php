@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Http\Requests\ClientesRequest;
 use App\Cliente;
+use App\Produto;
 
 class ClienteController extends Controller
 {
@@ -40,7 +41,9 @@ class ClienteController extends Controller
     public function create()
     {
         //
-        return view('clientes.create');
+        $produtos = Produto::pluck('nome_produto', 'id');
+
+    return view('clientes.create', array('produtos' => $produtos));
 
     }
 

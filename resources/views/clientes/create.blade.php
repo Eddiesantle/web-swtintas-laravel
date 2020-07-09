@@ -22,6 +22,22 @@
 
                     <form method="POST" action="{{route('clientes.store')}}">
                         @csrf
+
+                        <div class="form-group @if ($errors->has('curso_id')) has-error @endif">
+                            <label class="control-label" for="curso_id">Produtos</label>
+                            <select class="form-control" id="curso_id" name="curso_id">
+                              @foreach ($produtos as $id => $produto)
+                              <option value="{{ $id }}">{{ $produto }}</option>
+                              @endforeach
+                            </select>
+                            @if ($errors->has('curso_id'))
+                            <span class="invalid-feedback help-block" role="alert">
+                                <strong>{{ $errors->first('curso_id') }}</strong>
+                            </span>
+                            @endif
+                          </div>
+
+
                         <div class="form-group">
                             <label>Nome Cliente</label>
                             <input type="text" class="form-control" name="contact_name">
