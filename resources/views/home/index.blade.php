@@ -1,11 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+.inicial{
+ background-color: #FEB;
+ border-radius: 550px;
+}
+ </style>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Pagina inicial</div>
+                <div class="card-header">Pagina inicial</div> 
+                
 
                 <div class="card-body">
                     @if (session('status'))
@@ -16,13 +25,49 @@
 
                     Seja bem vindo {{ Auth::user()->name }}!
 
-                    <p>Esse sistema tem ultilidade registro de produtos e cadastro.</p>
+                    <p>Esse sistema tem ultilidade de registro de produtos e cadastro.</p>
                 </div>
             </div>
         </div>
 
         <div class="col-md-12">
-            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <div class="menu-items">
+                <?php
+                  $items = [
+                      "0" => [
+                        "nome" => "Cliente",
+                        "img" => "https://image.flaticon.com/icons/png/512/686/686317.png",
+                        "link" => "../resources/views/clientes/index.blade.php"
+                      ],
+                      "1" => [
+                        "nome" => "Produtos",
+                        "img" => "https://image.flaticon.com/icons/svg/1170/1170679.svg",
+                        "link" => "../resources/views/produtos/index.blade.php"
+                      ],
+                      "2" => [
+                        "nome" => "pedidos",
+                        "img" => "https://image.flaticon.com/icons/png/512/126/126510.png",
+                        "link" => "../resources/views/home/index.blade.php"
+                      ]
+
+                  ];
+
+                  foreach ($items as $item) {
+                    echo "<div>";
+                      echo "<div class='img-icon'>";
+                        echo "<img src='".$item['img']."'/>";
+                      echo "</div>";
+                      echo "<div class='img-titulo'>";
+                        echo "<a href='".$item['link']."'>".$item['nome']."</a>";
+                      echo "</div>";
+                    echo "</div>";
+                  };
+
+                ?>
+
+            </div>
+
+          <!--  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">  
                 <ol class="carousel-indicators">
                   <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
                   <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
@@ -60,7 +105,7 @@
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="sr-only">Next</span>
                 </a>
-              </div>
+              </div> -->
         </div>
 
     </div>
