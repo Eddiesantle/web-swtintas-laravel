@@ -31,7 +31,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="img/logo.png" width="100" class="d-inline-block align-top" alt="">
+                    <img src="https://image.flaticon.com/icons/png/512/67/67968.png" width="80" class="d-inline-block align-top" alt="">
 
                     {{-- {{ config('app.name', 'Laravel') }} --}}
                     
@@ -45,13 +45,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                           <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">Home</a>
+                            <a class="nav-link h4" href="{{ url('/') }}">Home</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="{{ route('produtos.index')}}">Produtos</a>
+                            <a class="nav-link h4" href="{{ route('produtos.index')}}">Produtos</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="{{ route('clientes.index')}}">Clientes</a>
+                            <a class="nav-link h4" href="{{ route('clientes.index')}}">Clientes</a>
                           </li>
                           
 

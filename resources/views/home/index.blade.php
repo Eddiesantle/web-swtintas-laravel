@@ -7,6 +7,30 @@
  background-color: #FEB;
  border-radius: 550px;
 }
+.img-icon-img{
+width: auto;
+height: 100px;
+
+}
+.menu-items{
+  display: flex ;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 40px;
+}
+.item-box{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+.img-titulo {
+  margin-top: 10px;
+  
+}
+.img-titulo-ancora{
+  color: #000 ;
+}
  </style>
 
 <div class="container">
@@ -26,22 +50,16 @@
                     
                     
                     <div class="row justify-content-center">
-                      <div class="col-md-2 mb-3">
-                        <img class="rounded-circle" src="storage/avatars/{{ $user->avatar }}" style="width:80px;" />
-                      </div>
+                      <!--<div class="col-md-2 mb-3">
+                        --<img class="rounded-circle" src="storage/avatars/{{ $user->avatar }}" style="width:80px" /> 
+                      </div> -->
   
-                      <div class="col-md-4">
+                      <div class="col-md-12">
                         Seja bem vindo {{ Auth::user()->name }}!
   
-                      <p>Esse sistema tem ultilidade registro de produtos e cadastro.</p>
+                      <p>Você pode visualizar seus clientes, produtos e pedidos por aqui.</p>
                       </div>
                     </div>
-
-
-      
-
-
-                    <p>Esse sistema tem ultilidade de registro de produtos e cadastro.</p>
                 </div>
             </div>
         </div>
@@ -61,7 +79,7 @@
                         "link" => "../resources/views/produtos/index.blade.php"
                       ],
                       "2" => [
-                        "nome" => "pedidos",
+                        "nome" => "Pedidos",
                         "img" => "https://image.flaticon.com/icons/png/512/126/126510.png",
                         "link" => "../resources/views/home/index.blade.php"
                       ]
@@ -69,12 +87,14 @@
                   ];
 
                   foreach ($items as $item) {
-                    echo "<div>";
-                      echo "<div class='img-icon'>";
-                        echo "<img src='".$item['img']."'/>";
+                    echo "<div class='item-box col-md-3'>";
+                      echo "<div class='img-icon '>";
+                        echo "<a href='".$item['link']."'>";
+                          echo "<img class='img-icon-img'   src='".$item['img']."'/>";
+                        echo "</a>";
                       echo "</div>";
                       echo "<div class='img-titulo'>";
-                        echo "<a href='".$item['link']."'>".$item['nome']."</a>";
+                        echo "<a class='img-titulo-ancora' href='".$item['link']."'>".$item['nome']."</a>";
                       echo "</div>";
                     echo "</div>";
                   };
