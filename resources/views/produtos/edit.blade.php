@@ -3,17 +3,12 @@
 @section('content')
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="page-header">
-        {{-- <a class="btn btn-primary pull-right" href="{{ route('clientes.index') }}" role="button">Voltar</a> --}}
-        <h2>Visualizando Cliente</h2>
+    <div class="col-md-6 mt-5">
+      <div class="card">
+        <div class="card-header text-light" style="background-color: #48D1CC"><b>EDITAR PRODUTOS</b></div>
 
-        <?php 
-  /* dd($editproduto); */
-        ?>
-        
-      </div>
-            <form action="{{ route('produtos.update', $editproduto) }}" method="post">
+            <div class="card-body">
+              <form action="{{ route('produtos.update', $editproduto) }}" method="post">
                 @csrf
                 @method('PUT')
                 <fieldset>
@@ -42,10 +37,12 @@
               
                   <br />
                   <a class="btn btn-primary pull-right" href="{{ route('produtos.index') }}" role="button">Voltar</a>
-                  <button type="submit" class="btn btn-success">Alterar Cliente</button>
+                  <button type="submit" class="btn btn-success">Salvar</button>
                 </fieldset>
               </form>
+            </div>
     
+
 
       </div>
     </div>

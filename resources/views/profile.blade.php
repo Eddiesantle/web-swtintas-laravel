@@ -45,25 +45,6 @@
         </div>
 
 
-<div class="table-responsive">
-    <table class="table table-striped table-bordered">
-        <thead>
-        <tr>
-            <th>Nome</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach ($user as $avatar)
-        <tr>
-            <td><img class="rounded-circle" src="storage/avatars/{{ $user->avatar }}" style="width:100px;" /></td>
-        </tr>
-        @endforeach
-        </tbody>
-    </table>
-</div>
-
-
-
         <div class="row justify-content-center">
             <div class="col-md-6 text-center">
                 <div class="w-100">

@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6 mt-5">
             <div class="card">
-                <div class="card-header">Produtos</div>
+                <div class="card-header text-light" style="background-color: #48D1CC"><b>CADASTRAR PRODUTO</b></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,13 +14,10 @@
                         </div>
                     @endif
 
-                    Seja bem vindo {{ Auth::user()->name }}!
-
-                    <p>Aqui vamos registrar todos os Produtos</p>
 
                     
 
-                    <form method="POST" action="{{route('produtos.store')}}">
+                    <form method="POST" action="{{route('produtos.store')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label>Nome Produto</label>
@@ -44,7 +41,7 @@
                         </div>
 
                           <a class="btn btn-primary pull-right" href="{{ route('produtos.index') }}" role="button">Voltar</a>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-success">Salvar</button>
                     </form>
                     
 

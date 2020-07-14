@@ -56,14 +56,27 @@ class ProdutoController extends Controller
         $produto = array(
             'nome_produto'    => $request->nome_produto,
             'codigo'   => $request->codigo, 
+            'avatar'   => $request->avatar,
           ); 
 
         //Herdado Classe do MODEL produto
         $novoproduto = new Produto();
         $novoproduto->nome_produto = $produto['nome_produto'];
         $novoproduto->codigo = $produto['codigo'];
+        $novoproduto->avatar = $produto['avatar'];
 
 
+
+
+        if ($request->hasFile('avatar') && $request->file('avatar')->isValid())
+        {
+
+            $avatarName = $novoproduto->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
+
+            $novoproduto->avatar = $request->avatar->storeAs('produtos',$avatarName);
+        }
+
+ 
 
         //Registra no banco de dados
         $novoproduto->save();
