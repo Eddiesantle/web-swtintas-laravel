@@ -21,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('profile', 'UserController@profile')->name('profile');
+Route::post('avatar', 'UserController@update_avatar')->name('avatar');
+
 Route::resource('produtos', 'ProdutoController');
 Route::resource('clientes', 'ClienteController');
 

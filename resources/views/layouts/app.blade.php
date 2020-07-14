@@ -48,7 +48,7 @@
                             <a class="nav-link" href="{{ url('/') }}">Home</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="{{ route('produtos.index')}}">Cadastro de Produtos</a>
+                            <a class="nav-link" href="{{ route('produtos.index')}}">Produtos</a>
                           </li>
                           <li class="nav-item">
                             <a class="nav-link" href="{{ route('clientes.index')}}">Clientes</a>
@@ -76,7 +76,14 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
+                
+
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    
+                                    <a class="dropdown-item" href="{{ route('profile')}}">
+                                        Perfil do Usuário
+                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -92,10 +99,14 @@
                     </ul>
                 </div>
 
+                
+
                 {{-- @endif --}}
 
             </div>
         </nav>
+
+        
 
         {{-- Info Alert --}}
       @if(session('status'))

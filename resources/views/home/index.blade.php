@@ -23,7 +23,23 @@
                         </div>
                     @endif
 
-                    Seja bem vindo {{ Auth::user()->name }}!
+                    
+                    
+                    <div class="row justify-content-center">
+                      <div class="col-md-2 mb-3">
+                        <img class="rounded-circle" src="storage/avatars/{{ $user->avatar }}" style="width:80px;" />
+                      </div>
+  
+                      <div class="col-md-4">
+                        Seja bem vindo {{ Auth::user()->name }}!
+  
+                      <p>Esse sistema tem ultilidade registro de produtos e cadastro.</p>
+                      </div>
+                    </div>
+
+
+      
+
 
                     <p>Esse sistema tem ultilidade de registro de produtos e cadastro.</p>
                 </div>
