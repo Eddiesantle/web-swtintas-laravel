@@ -47,6 +47,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="img/logofc.jpeg" width="200" class="d-inline-block align-top border border-primary rounded" alt="">
+                    
 
                     {{-- {{ config('app.name', 'Laravel') }} --}}
                     
