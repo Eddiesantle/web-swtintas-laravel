@@ -69,6 +69,9 @@
                           <li class="nav-item">
                             <a class="nav-link text-light font-weight-bold" href="{{ route('clientes.index')}}">CLIENTES</a>
                           </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-light font-weight-bold" href="{{ url('/')}}">PEDIDOS</a>
+                          </li>
                           
 
                     </ul>

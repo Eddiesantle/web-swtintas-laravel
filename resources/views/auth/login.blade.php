@@ -5,9 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-5 mt-5">
             <div class="card">
-                <div class="card-header text-light" style="background-color: #48D1CC">{{ __('Entrar') }}</div>
+                
 
-                <div class="card-body">
+
+                <div class="card-body text-center">
+                    <img src="img/pintura.png" class="mt-2 mb-4" style="height:80px;"/>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 

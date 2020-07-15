@@ -110,7 +110,7 @@ height: 100px;
                 <h3>Clientes</h3>
                 <div class='img-icon '>
                   <a href="{{ route('clientes.index')}}">
-                    <img src="https://image.flaticon.com/icons/png/512/686/686317.png" style="width: 100px" alt="">
+                    <img src="https://image.flaticon.com/icons/png/512/686/686317.png" style="width: 80px" alt="">
                   </a>
                 </div>
               </div>
@@ -119,7 +119,7 @@ height: 100px;
                   <h3>Produtos</h3>
                   <a href="{{ route('produtos.index')}}">
 
-                    <img src="https://image.flaticon.com/icons/svg/1170/1170679.svg" style="width: 100px" alt="">
+                    <img src="https://image.flaticon.com/icons/svg/1170/1170679.svg" style="width: 80px" alt="">
                   </a>
                 </div>
               </div>
@@ -127,14 +127,14 @@ height: 100px;
                 <h3>Pedidos</h3>
                 <div class='img-icon '>
                   <a href="{{ route('clientes.index')}}">
-                    <img src="https://image.flaticon.com/icons/png/512/126/126510.png" style="width: 100px" alt="">
+                    <img src="https://image.flaticon.com/icons/png/512/126/126510.png" style="width: 80px" alt="">
                   </a>
                 </div>
               </div>
           </div>
 
         <div class="row justify-content-center">
-          <div class="col-md-8 mt-3">
+          <div class="col-md-8 mt-5">
             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                   <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>

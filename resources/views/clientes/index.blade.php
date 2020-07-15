@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header text-light" style="background-color: #48D1CC"><b>CLIENTES</b></div>
 
@@ -22,8 +22,8 @@
                               <thead>
                                 <tr>
                                   <th>Nome</th>
-                                  <th>E-mail</th>
-                                  <th>Telefone</th>
+                                  {{-- <th>E-mail</th>
+                                  <th>Telefone</th> --}}
                                   <th>Ações</th>
                                 </tr>
                               </thead>
@@ -32,8 +32,8 @@
                                 <tr>
 
                                   <td>{{ $cliente->name }}</td>
-                                  <td>{{ $cliente->email }}</td>
-                                  <td>{{ $cliente->telefone }}</td>
+                                  {{-- <td>{{ $cliente->email }}</td>
+                                  <td>{{ $cliente->telefone }}</td> --}}
 
                                   
                                   <td>

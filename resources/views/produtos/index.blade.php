@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header text-light" style="background-color: #48D1CC"><b>PRODUTOS</b></div>
 
@@ -22,7 +22,7 @@
                           <thead>
                             <tr>
                               <th>Produto</th>
-                              <th>Codigo</th>
+                              {{-- <th>Codigo</th> --}}
                               <th>Ações</th>
 
                             </tr>
@@ -32,7 +32,7 @@
                             <tr>
 
                               <td>{{ $produto->nome_produto }}</td>
-                              <td>{{ $produto->codigo }}</td>
+                              {{-- <td>{{ $produto->codigo }}</td> --}}
                               <td>
                                 <form action="{{ route('produtos.destroy', $produto) }}" method="post">
                                     @method('DELETE')
